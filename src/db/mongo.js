@@ -1,5 +1,13 @@
 import { MongoClient } from "mongodb";
-import { MONGO_URL } from "$env/static/private"; 
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const MONGO_URL = process.env.MONGO_URL;
+
+if (!MONGO_URL) {
+    throw new Error("MONGO_URL is not defined in the environment variables.");
+}
 
 const client = new MongoClient(MONGO_URL);
 
