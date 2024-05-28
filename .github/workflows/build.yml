@@ -26,3 +26,4 @@ jobs:
           app: 'square'
           token: '${{ secrets.APP_TOKEN }}'
           image: 'ghcr.io/aintnewtathis-yy/square:latest'
+          
