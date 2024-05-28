@@ -1,0 +1,158 @@
+@font-face {
+	font-family: 'Manege';
+	src:
+		url('./fonts/ManegeDemo-Light.ttf') format('ttf'),
+		url('./fonts/ManegeDemo-Light.woff2') format('woff2'),
+		url('./fonts/ManegeDemo-Light.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src:
+		url('./fonts/Inter-Light.ttf') format('ttf'),
+		url('./fonts/Inter-Light.woff2') format('woff2'),
+		url('./fonts/Inter-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src:
+		url('./fonts/Inter-Regular.ttf') format('ttf'),
+		url('./fonts/Inter-Regular.woff2') format('woff2'),
+		url('./fonts/Inter-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src:
+		url('./fonts/Inter-Medium.ttf') format('ttf'),
+		url('./fonts/Inter-Medium.woff2') format('woff2'),
+		url('./fonts/Inter-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+body {
+	background-color: #fffaf6;
+}
+.container {
+	max-width: 1560px;
+	padding-inline: 20px;
+	margin-inline: auto;
+}
+
+*{
+    color: #202020;
+    position: relative;
+}
+html{
+    scrollbar-gutter: stable;
+    height: auto;
+}
+
+body{
+    font-family: Inter;
+    font-weight: 300;
+    line-height: 120%;
+    color: var(--text-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFAF6;
+    position: relative;
+
+    @include fluid-text(16, 16);
+
+    @include mobile{
+        @include fluid-text(16, 12);
+        line-height: 140%;
+    }
+    
+}
+button{
+    @include fluid-text(16, 16);
+
+    @include mobile{
+        @include fluid-text(16, 12);
+    }
+}
+input{
+    width: 100%;
+    accent-color: var(--accent-color);
+    background-color: transparent;
+    border-radius: var(--border-radius);
+    padding: 24px;
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    outline: 1px solid transparent;
+    font-family: Manege;
+    
+    &::placeholder{
+        color: var(--placeholder-color);
+    }
+
+    &:focus{
+        outline: 1px solid var(--accent-color);
+    }
+
+    &.error{
+        border-color: #EB1B1B;
+        ouline: 1px solid #EB1B1B;
+    }
+   
+    @include fluid-text(52, 45);
+
+    @include desktop {
+        padding: 20px;
+
+        @include fluid-text(45, 35);
+    }
+
+    @include mobile{
+        @include fluid-text(30, 25);
+    }
+}  
+section{
+    max-width: 1920px;
+    margin-inline: auto; 
+}
+.btn-main{
+    padding: 24px;
+    background-color: var(--accent-color);
+    font-family: Manege;
+    width: 100%;
+    border-radius: var(--border-radius);
+    color: #fff;
+
+    @include hover{
+        background-color: #a5c3dfca; 
+    }
+
+
+    @include fluid-text(30,30);
+
+    @include desktop {
+        padding: 20px;
+    }
+
+    @include mobile{
+        @include fluid-text(30, 25);
+    }
+}
+
+.hero__info__response-text-desc {
+    p {
+        &:has(span){
+            padding-top: 20px;
+        }
+        span {
+            font-weight: 400;
+        }
+    }
+}
