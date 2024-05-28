@@ -3,6 +3,8 @@ WORKDIR /usr/src/app
 
 ARG TZ=Europe/Moscow
 ARG PUBLIC_HELLO
+ARG MONGO_URL
+ENV MONGO_URL=$MONGO_URL
 
 COPY . /usr/src/app
 RUN apk --no-cache add curl tzdata
