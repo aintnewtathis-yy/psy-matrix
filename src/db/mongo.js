@@ -1,7 +1,4 @@
 import { MongoClient } from "mongodb";
-import dotenv from "dotenv";
-
-dotenv.config(); // Load environment variables from .env file
 
 const MONGO_URL = process.env.MONGO_URL;
 
@@ -11,10 +8,9 @@ if (!MONGO_URL) {
 
 const client = new MongoClient(MONGO_URL);
 
-export async function startMongo(){
+export function startMongo(){
     console.log('starting mongo...');
-    await client.connect();
-    return client.db('square');
+    return client.connect();
 }
 
-export default startMongo;
+export default client.db('square');

@@ -19,6 +19,8 @@ ARG TZ=Europe/Moscow
 RUN apk --no-cache add curl tzdata
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+ENV MONGO_URL=$MONGO_URL
+
 COPY --from=sk-build /usr/src/app/package.json /usr/src/app/package.json
 COPY --from=sk-build /usr/src/app/package-lock.json /usr/src/app/package-lock.json
 RUN npm i --only=production
