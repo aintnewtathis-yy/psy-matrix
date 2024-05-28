@@ -12,6 +12,13 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+
+      - name: Get MONGO_URL from GitHub Secrets
+        id: mongo_url
+        run: |
+          echo "MONGO_URL from GitHub Secrets: ${{ secrets.MONGO_URL }}"
+          echo "::set-output name=url::${{ secrets.MONGO_URL }}"
+        
       - name: Publish Docker Image
         uses: matootie/github-docker@v3.1.0
         with:
@@ -19,6 +26,12 @@ jobs:
           containerRegistry: true
           buildArgs: |
             PUBLIC_HELLO=world
+            MONGO_URL=${{ steps.mongo_url.outputs.url }}
+            
+      - name: Debug Dockerfile
+        run: |
+          cat Dockerfile
+            
       - name: Deploy on CapRover
         uses: caprover/deploy-from-github@v1.1.2
         with:
