@@ -1,7 +1,7 @@
 FROM node:19.7-alpine AS sk-build
 WORKDIR /usr/src/app
 
-ARG TZ=Europe/Stockholm
+ARG TZ=Europe/Moscow
 ARG PUBLIC_HELLO
 
 COPY . /usr/src/app
@@ -13,7 +13,7 @@ RUN npm run build
 FROM node:19.7-alpine
 WORKDIR /usr/src/app
 
-ARG TZ=Europe/Stockholm
+ARG TZ=Europe/Moscow
 RUN apk --no-cache add curl tzdata
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
