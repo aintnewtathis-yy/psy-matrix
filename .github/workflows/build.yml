@@ -19,6 +19,9 @@ jobs:
           echo "MONGO_URL from GitHub Secrets: ${{ secrets.MONGO_URL }}"
           echo "MONGO_URL=${{ secrets.MONGO_URL }}" >> $GITHUB_ENV
       
+      - name: Log MONGO_URL
+        run: echo "MONGO_URL is $MONGO_URL"
+      
         
       - name: Publish Docker Image
         uses: matootie/github-docker@v3.1.0
