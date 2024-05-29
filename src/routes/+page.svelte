@@ -6,6 +6,15 @@
 	export let data;
 	export let form;
 	let inputValue;
+	let descValue;
+
+	$: if (form?.calculation) {
+		if (form.calculation.ones > 6) {
+			descValue = data.descriptions.filter((desc) => desc.quantity === 6);
+		} else {
+			descValue = data.descriptions.filter((desc) => desc.quantity === form.calculation.ones);
+		}
+	}
 
 	function inputHandle() {
 		this.classList.remove('error');
@@ -31,9 +40,9 @@
 	<div class="hero">
 		<div class="hero__info">
 			<h1>Квадрат Пифагора</h1>
-			{#if form?.descriptions}
+			{#if form?.calculation}
 				<div class="hero__info__response" in:fade>
-					{#each form?.descriptions as desc}
+					{#each descValue as desc}
 						<div class="hero__info__response-text">
 							<h2>{desc.title}</h2>
 							{@html desc.about}

@@ -2,7 +2,6 @@ import db from '$db/mongo';
 import { validateData, getSquareNumbers } from '$lib/utils';
 import { dateSchema } from '$lib/schemas';
 import { fail } from '@sveltejs/kit';
-import { request } from 'http';
 
 export const actions = {
 	getData: async ({ request, locals }) => {
@@ -17,28 +16,9 @@ export const actions = {
 
 		const calculation = getSquareNumbers(formData);
 
-		try {
-			const descriptions = await db
-				.collection('descriptions')
-				.find(
-					{
-						name: 'ones',
-						quantity: calculation.ones
-					},
-					{ projection: { _id: 0 } }
-				)
-				.toArray();
-
-			return {
-				descriptions,
-				calculation,
-				date: formData.date
-			};
-		} catch (e) {
-			console.log(e);
-			return {
-				error: 'An error occurred while fetching data.'
-			};
+		return {
+			calculation,
+			date: formData.date
 		}
 	},
 	inputDesc: async ({ request }) => {
