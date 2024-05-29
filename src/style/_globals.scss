@@ -1,9 +1,9 @@
 @font-face {
 	font-family: 'Manege';
 	src:
-		url('./fonts/ManegeDemo-Light.ttf') format('ttf'),
-		url('./fonts/ManegeDemo-Light.woff2') format('woff2'),
-		url('./fonts/ManegeDemo-Light.woff') format('woff');
+		url('../fonts/ManegeDemo-Light.ttf') format('ttf'),
+		url('../fonts/ManegeDemo-Light.woff2') format('woff2'),
+		url('../fonts/ManegeDemo-Light.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -11,9 +11,9 @@
 @font-face {
 	font-family: 'Inter';
 	src:
-		url('./fonts/Inter-Light.ttf') format('ttf'),
-		url('./fonts/Inter-Light.woff2') format('woff2'),
-		url('./fonts/Inter-Light.woff') format('woff');
+		url('../fonts/Inter-Light.ttf') format('ttf'),
+		url('../fonts/Inter-Light.woff2') format('woff2'),
+		url('../fonts/Inter-Light.woff') format('woff');
 	font-weight: 300;
 	font-style: normal;
 }
@@ -21,9 +21,9 @@
 @font-face {
 	font-family: 'Inter';
 	src:
-		url('./fonts/Inter-Regular.ttf') format('ttf'),
-		url('./fonts/Inter-Regular.woff2') format('woff2'),
-		url('./fonts/Inter-Regular.woff') format('woff');
+		url('../fonts/Inter-Regular.ttf') format('ttf'),
+		url('../fonts/Inter-Regular.woff2') format('woff2'),
+		url('../fonts/Inter-Regular.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -31,9 +31,9 @@
 @font-face {
 	font-family: 'Inter';
 	src:
-		url('./fonts/Inter-Medium.ttf') format('ttf'),
-		url('./fonts/Inter-Medium.woff2') format('woff2'),
-		url('./fonts/Inter-Medium.woff') format('woff');
+		url('../fonts/Inter-Medium.ttf') format('ttf'),
+		url('../fonts/Inter-Medium.woff2') format('woff2'),
+		url('../fonts/Inter-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 }
@@ -103,7 +103,7 @@ input{
 
     &.error{
         border-color: #EB1B1B;
-        ouline: 1px solid #EB1B1B;
+        outline: 1px solid #EB1B1B;
     }
    
     @include fluid-text(52, 45);
