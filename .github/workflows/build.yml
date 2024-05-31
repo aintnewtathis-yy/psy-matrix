@@ -40,8 +40,8 @@ jobs:
         uses: caprover/deploy-from-github@v1.1.2
         with:
           server: https://marina-mayskaya.ru
-          app: 'square'
+          app: 'psy-matrix'
           token: ${{ secrets.APP_TOKEN }}
-          image: 'ghcr.io/aintnewtathis-yy/square:latest'
+          image: 'ghcr.io/aintnewtathis-yy/psy-matrix:latest'
 
           
