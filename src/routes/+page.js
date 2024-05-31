@@ -1,5 +1,6 @@
 import { browser } from '$app/environment';
 
+
 export async function load({ fetch }) {
 	let descriptions = [];
 
