@@ -28,6 +28,7 @@
 			arr.splice(2, 0, '.');
 		}
 
+		
 		if (arr[5] && arr[5] !== '.') {
 			arr.splice(5, 0, '.');
 		}
