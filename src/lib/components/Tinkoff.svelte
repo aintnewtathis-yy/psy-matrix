@@ -1,4 +1,3 @@
-
 <form class="payform-tinkoff" name="payform-tinkoff" onsubmit="pay(this); return false;">
 	<input class="payform-tinkoff-row" type="hidden" name="terminalkey" value="1717138578425DEMO" />
 	<input class="payform-tinkoff-row" type="hidden" name="frame" value="false" />
