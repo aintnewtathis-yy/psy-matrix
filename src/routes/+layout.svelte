@@ -1,11 +1,13 @@
 <script>
+	import { Toaster } from 'svelte-french-toast';
 	import '../app.scss';
-    import Notification from '$lib/components/Notification.svelte';
 
 	export let data;
 </script>
 
 <slot />
+
+<Toaster />
 
 
 <footer>

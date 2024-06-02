@@ -129,6 +129,8 @@ section{
     font-family: Manege;
     width: 100%;
     border-radius: var(--border-radius);
+    max-width: 450px;
+    cursor: pointer;
     color: #fff;
 
     @include hover{
@@ -144,6 +146,31 @@ section{
 
     @include mobile{
         @include fluid-text(30, 25);
+    }
+}
+.btn-hollow{
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 24px;
+    font-family: Manege;
+    cursor: pointer;
+    width: 100%;
+    border-radius: var(--border-radius);
+    max-width: 450px;
+
+    @include fluid-text(30,30);
+
+    @include desktop {
+        padding: 20px;
+    }
+
+    @include mobile{
+        @include fluid-text(30, 25);
+    }
+
+    @include hover{
+        border: 1px solid var(--light-accent-color);
     }
 }
 

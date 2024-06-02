@@ -2,6 +2,10 @@
 	import { enhance } from '$app/forms';
 	import { fade } from 'svelte/transition';
 	import Notification from '$lib/components/Notification.svelte';
+	import toast, { Toaster } from 'svelte-french-toast';
+	import DialogPurchase from '../lib/components/DialogPurchase.svelte';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	export let data;
 	export let form;
@@ -35,6 +39,13 @@
 
 		inputValue = arr.join('');
 	}
+
+	onMount(() => {
+		if($page.url.search === '?=failed'){
+			toast.error("Оплата не прошла, попробуйте снова!");
+		}
+	})
+	
 </script>
 
 <div class="container">
@@ -53,9 +64,12 @@
 						</div>
 					{/each}
 					<div class="mask"></div>
-					<form action="?/resetForm" method="POST" use:enhance>
-						<button class="btn-main">Рассчитать снова</button>
-					</form>
+					<div class="hero__info__response-forms">
+						<form action="?/resetForm" method="POST" use:enhance>
+							<button class="btn-hollow">Рассчитать снова</button>
+						</form>
+						<DialogPurchase />
+					</div>
 				</div>
 			{:else}
 				<div class="hero__info__starter" in:fade>
@@ -381,6 +395,16 @@
 						font-weight: 400;
 
 						@include fluid-text(20, 18);
+					}
+				}
+
+				&-forms{
+					display: flex;
+					gap: 20px;
+
+					form{
+						width: 100%;
+						flex: 0 0 calc((100% - 20px)/2);
 					}
 				}
 			}
