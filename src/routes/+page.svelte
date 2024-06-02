@@ -402,6 +402,10 @@
 					display: flex;
 					gap: 20px;
 
+					@include mobile {
+						gap: 10px;
+					}
+
 					form{
 						width: 100%;
 						flex: 0 0 calc((100% - 20px)/2);

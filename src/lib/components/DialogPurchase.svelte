@@ -30,7 +30,7 @@
 			<img src="/tink.svg" alt="purchase way" />
 		</div>
 		<button
-            class="dialog-close"
+			class="dialog-close"
 			on:click={() => {
 				dialog.close();
 			}}
@@ -45,6 +45,7 @@
 		margin: auto;
 		max-width: 1100px;
 		position: fixed;
+		margin: auto 10px;
 
 		border-radius: var(--border-radius);
 
@@ -62,6 +63,10 @@
 			display: flex;
 			flex-direction: column;
 			gap: 20px;
+
+			@include mobile {
+				padding: 20px;
+			}
 
 			h3 {
 				font-family: Manege;
@@ -89,11 +94,16 @@
 				}
 			}
 
-            .dialog-close{
-                position: absolute;
-                top: 25px;
-                right: 25px;
-            }
+			.dialog-close {
+				position: absolute;
+				top: 25px;
+				right: 25px;
+
+				@include mobile {
+					top: 10px;
+					right: 10px;
+				}
+			}
 		}
 	}
 </style>
