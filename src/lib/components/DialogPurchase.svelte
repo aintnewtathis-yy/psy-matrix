@@ -45,7 +45,11 @@
 		margin: auto;
 		max-width: 1100px;
 		position: fixed;
-		margin: auto 10px;
+		margin: auto;
+
+		@include mobile{
+			margin: auto 10px;
+		}
 
 		border-radius: var(--border-radius);
 
