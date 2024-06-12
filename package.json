@@ -18,7 +18,6 @@
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
-		"pocketbase": "^0.21.3",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
 		"sass": "^1.77.2",
@@ -29,7 +28,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"html2canvas": "^1.4.1",
 		"jspdf": "^2.5.1",
 		"svelte-add": "^2.0.6",
 		"svelte-french-toast": "^1.2.0"
