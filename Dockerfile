@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 ARG TZ=Europe/Moscow
 ARG PUBLIC_HELLO
 
-COPY. /usr/src/app
+COPY . /usr/src/app
 
 # Install build dependencies
 RUN apk --no-cache add curl tzdata git
