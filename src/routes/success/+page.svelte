@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { enhance } from '$app/forms';
+	import { page } from '$app/stores';
 
 	export let data;
 	export let form;
@@ -28,6 +29,7 @@
 
 	onMount(() => {
 		dialog.showModal();
+		console.log($page)
 	});
 
 </script>
