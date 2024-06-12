@@ -1,26 +1,42 @@
-FROM node:18 AS sk-build
+FROM node:18-alpine AS sk-build
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/Moscow
 ARG PUBLIC_HELLO
 
-COPY . /usr/src/app
-RUN apk --no-cache add curl tzdata
+COPY. /usr/src/app
+
+# Install build dependencies
+RUN apk --no-cache add curl tzdata git
+
+# Explicitly install the missing rollup binary for Alpine
+RUN npm install --global @rollup/rollup-linux-x64-musl
+
+# Set timezone
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN npm install
+
+# Install project dependencies
+RUN npm install --force
+
+# Continue with the rest of your build process
 RUN npm run build
 
-FROM node:18
+FROM node:18-alpine
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/Moscow
-RUN apk --no-cache add curl tzdata
+
+# Install runtime dependencies
+RUN apk --no-cache add curl tzdata git
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-COPY --from=sk-build /usr/src/app/package.json /usr/src/app/package.json
-COPY --from=sk-build /usr/src/app/package-lock.json /usr/src/app/package-lock.json
-RUN npm i --only=production
+# Copy only package.json and package-lock.json to leverage Docker cache
+COPY --from=sk-build /usr/src/app/package*.json /usr/src/app/
 
+# Install production dependencies only
+RUN npm install --only=production --force
+
+# Copy the rest of your application
 COPY --from=sk-build /usr/src/app/build /usr/src/app/build
 
 EXPOSE 3000
