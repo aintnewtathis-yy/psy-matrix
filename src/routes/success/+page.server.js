@@ -16,6 +16,11 @@ export const actions = {
 		throw redirect(303, `/${formData.date}`);
 	},
 	postTinkoff: async (e) => {
-		console.log(e)
+		try {
+			const jsonData = await e.request.json();
+			console.log(jsonData);
+		} catch (error) {
+			console.error('Error parsing JSON:', error);
+		}
 	}
 };
