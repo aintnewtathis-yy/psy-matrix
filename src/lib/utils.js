@@ -1,5 +1,3 @@
-import puppeteer from 'puppeteer';
-
 export const serializeNonPOJOs = (obj) => {
 	return structuredClone(obj);
 };

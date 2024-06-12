@@ -1,7 +1,6 @@
 import { validateData } from '$lib/utils';
 import { successSchema } from '$lib/schemas';
 import { fail, redirect } from '@sveltejs/kit';
-import puppeteer from 'puppeteer';
 
 export const actions = {
 	fullPrediction: async ({ request, locals }) => {
