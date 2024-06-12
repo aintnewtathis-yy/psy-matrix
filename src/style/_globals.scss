@@ -104,7 +104,6 @@ input{
 
     &.error{
         border-color: #EB1B1B;
-        outline: 1px solid #EB1B1B;
     }
    
     @include fluid-text(52, 45);

@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { enhance } from '$app/forms';
 
 	export let data;
 	export let form;
@@ -28,6 +29,7 @@
 	onMount(() => {
 		dialog.showModal();
 	});
+
 </script>
 
 <section>
@@ -37,13 +39,16 @@
 				<h3>Получите полный разбор</h3>
 				<p>Заполните форму и в течении дня мы отправим полный разбор в удобный вам мессенджер!</p>
 			</div>
-			<form action="/?sendFullDesc" method="POST" class="collect-data-form">
+			<form action="?/fullPrediction" method="POST" class="collect-data-form" use:enhance>
 				<div>
 					<label for="name">Имя</label>
-					<input type="text" name="name" placeholder="Имя" />
+					<input type="text" name="name" placeholder="Имя" value={form?.data.name ?? ''} />
+					{#if form?.errors.name}
+						<p style="color: #EB1B1B;">{form.errors.name[0]}</p>
+					{/if}
 				</div>
 				<div>
-                    <label for="date">Дата рождения</label>
+					<label for="date">Дата рождения</label>
 					<input
 						type="text"
 						name="date"
@@ -51,13 +56,25 @@
 						on:input={inputHandle}
 						maxlength="10"
 						placeholder="01.01.2001"
-						class:error={form?.data?.date}
+						class:error={form?.errors.date}
 					/>
+					{#if form?.errors.date}
+						<p style="color: #EB1B1B;">{form.errors.date[0]}</p>
+					{/if}
 				</div>
 				<div>
-                    <label for="messanger">Мессенджер/телефон</label>
-                    <input type="text" name="messanger" placeholder="Telegram/Whatsapp" />
-                </div>
+					<label for="messanger">Мессенджер/телефон/email</label>
+					<input
+						type="text"
+						name="messanger"
+						placeholder="Telegram/Whatsapp"
+						value={form?.data.messanger ?? ''}
+						class:error={form?.errors.messanger}
+					/>
+					{#if form?.errors.messanger}
+						<p style="color: #EB1B1B;">{form.errors.messanger[0]}</p>
+					{/if}
+				</div>
 
 				<button type="submit" class="btn-main">Отправить</button>
 			</form>
@@ -104,7 +121,7 @@
 				}
 				p {
 					text-wrap: balance;
-                    @include fluid-text(16,14);
+					@include fluid-text(16, 14);
 				}
 			}
 			&-form {
@@ -113,15 +130,15 @@
 				flex-direction: column;
 				gap: 10px;
 
-                div{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 5px;
+				div {
+					display: flex;
+					flex-direction: column;
+					gap: 5px;
 
-                    label{
-                        @include fluid-text(16,12);
-                    }
-                }
+					label {
+						@include fluid-text(16, 12);
+					}
+				}
 
 				input {
 					padding: 12px;
@@ -129,7 +146,7 @@
 					@include fluid-text(25, 22);
 				}
 				button {
-                    margin-top: 20px;
+					margin-top: 20px;
 					max-width: 1000px;
 				}
 			}
