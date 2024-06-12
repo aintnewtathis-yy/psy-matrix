@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms';
 	import { fade } from 'svelte/transition';
 	import Notification from '$lib/components/Notification.svelte';
-	import toast, { Toaster } from 'svelte-french-toast';
+	import toast from 'svelte-french-toast';
 	import DialogPurchase from '../lib/components/DialogPurchase.svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
@@ -32,7 +32,6 @@
 			arr.splice(2, 0, '.');
 		}
 
-		
 		if (arr[5] && arr[5] !== '.') {
 			arr.splice(5, 0, '.');
 		}
@@ -41,11 +40,10 @@
 	}
 
 	onMount(() => {
-		if($page.url.search === '?=failed'){
-			toast.error("Оплата не прошла, попробуйте снова!");
+		if ($page.url.search === '?=failed') {
+			toast.error('Оплата не прошла, попробуйте снова!');
 		}
-	})
-	
+	});
 </script>
 
 <div class="container">
@@ -56,7 +54,7 @@
 				<div class="hero__info__response" in:fade>
 					{#each descValue as desc}
 						<div class="hero__info__response-text">
-							<h2>{desc.title}</h2>
+							<h2>{desc.name}</h2>
 							{@html desc.about}
 							<div class="hero__info__response-text-desc">
 								{@html desc.desc}
@@ -398,7 +396,7 @@
 					}
 				}
 
-				&-forms{
+				&-forms {
 					display: flex;
 					gap: 20px;
 
@@ -406,9 +404,9 @@
 						gap: 10px;
 					}
 
-					form{
+					form {
 						width: 100%;
-						flex: 0 0 calc((100% - 20px)/2);
+						flex: 0 0 calc((100% - 20px) / 2);
 					}
 				}
 			}

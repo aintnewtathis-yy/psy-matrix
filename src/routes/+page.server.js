@@ -1,4 +1,3 @@
-import db from '$db/mongo';
 import { validateData, getSquareNumbers } from '$lib/utils';
 import { dateSchema } from '$lib/schemas';
 import { fail } from '@sveltejs/kit';
@@ -19,7 +18,7 @@ export const actions = {
 		return {
 			calculation,
 			date: formData.date
-		}
+		};
 	},
 	inputDesc: async ({ request }) => {
 		try {
@@ -41,6 +40,22 @@ export const actions = {
 	resetForm: async () => {
 		return {
 			reset: true
+		};
+	}
+};
+
+export const load = async ({ locals }) => {
+	try {
+		const descriptions = await locals.pb.collection('character').getFullList({
+			sort: 'created'
+		});
+
+		return { descriptions };
+	} catch (e) {
+		console.error('Error fetching character collection:', e);
+
+		return {
+			error: 'Failed to fetch records'
 		};
 	}
 };

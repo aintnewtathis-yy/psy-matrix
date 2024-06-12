@@ -1,13 +1,13 @@
 import db from '$db/mongo';
 
-export async function GET() {
-	try {
-		const descriptions = await db
-			.collection('descriptions')
-			.find({}, { projection: { _id: 0 } })
-			.toArray();
+export async function GET({event, resolve}) {
+	try {/* 
+		const descriptions = await event.locals.pb.collection('character').getFullList({
+			sort: '-created',
+		}); */
+		
 
-		return new Response(JSON.stringify(descriptions), {
+		return new Response(JSON.stringify(event), {
 			headers: {
 				'Content-Type': 'application/json'
 			}
