@@ -3,7 +3,7 @@ import { loginSchema } from '$lib/schemas';
 import { fail, redirect } from '@sveltejs/kit';
 
 export const load = ({ locals }) => {
-	if(locals.user.date){
+	if(locals.user?.date){
 		throw redirect(303, `/desc/${locals.user.date}`);
 	}
 }
