@@ -30,7 +30,7 @@ export const actions = {
 		} catch (err) {
 			console.log('Error: ', err.message);
 			return fail(400, {
-				formData,
+				data: formData,
 				loginFailed: true
 			});
 		}

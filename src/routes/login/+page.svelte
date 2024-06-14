@@ -10,6 +10,11 @@
 	onMount(async () => {
 		dialog.showModal();
 	});
+
+	$: {
+		console.log(form)
+		console.log(form)
+	}
 </script>
 
 <section>
@@ -31,9 +36,9 @@
 						name="email"
 						placeholder="example@mail.ru"
 						value={form?.data.email ?? ''}
-						class:error={form?.errors.email}
+						class:error={form?.errors?.email}
 					/>
-					{#if form?.errors.email}
+					{#if form?.errors?.email}
 						<p style="color: #EB1B1B;">{form.errors.email[0]}</p>
 					{/if}
 				</div>
@@ -44,13 +49,15 @@
 						name="password"
 						placeholder="Пароль"
 						value={form?.data.password ?? ''}
-						class:error={form?.errors.password}
+						class:error={form?.errors?.password}
 					/>
-					{#if form?.errors.password}
+					{#if form?.errors?.password}
 						<p style="color: #EB1B1B;">{form.errors.password[0]}</p>
 					{/if}
 				</div>
-
+				{#if form?.loginFailed}
+					<p style="color: #EB1B1B;">Неверные данные, проверьте правильность ввода</p>
+				{/if}
 				<button type="submit" class="btn-main">Отправить</button>
 			</form>
 		</div>
