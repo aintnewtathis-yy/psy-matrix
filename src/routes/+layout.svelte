@@ -5,10 +5,20 @@
 	export let data;
 </script>
 
+<header>
+	<div class="container">
+		<nav>
+			<ul>
+				<li><a href="/">Бесплатный расчет</a></li>
+				<li><a href="/login">Мой аккаунт</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
 <slot />
 
 <Toaster />
-
 
 <footer>
 	<div class="container">
@@ -34,9 +44,24 @@
 </footer>
 
 <style lang="scss">
+	header {
+		ul {
+			padding: 20px 0;
+			display: flex;
+			justify-content: space-between;
+
+			a {
+				text-transform: uppercase;
+				font-family: Manege;
+				@include hover {
+					color: var(--accent-color);
+				}
+			}
+		}
+	}
 	.footer {
 		margin-top: 100px;
-        background-color: #fffaf6;
+		background-color: #fffaf6;
 		border-top: 1px solid var(--light-accent-color);
 		display: flex;
 		flex-direction: column;
@@ -82,7 +107,7 @@
 				opacity: 0.8;
 
 				@include mobile {
-					@include fluid-text(12,10);
+					@include fluid-text(12, 10);
 				}
 			}
 		}

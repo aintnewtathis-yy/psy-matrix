@@ -10,6 +10,9 @@
 <div class="container" id="html-pdf">
 	<section>
 		<h1>Дата рождения: <span>{data.date}</span></h1>
+		
+		<Square {data} />
+
 		{#each arr as el}
 			<div class="desc">
 				<div>
@@ -20,7 +23,7 @@
 			</div>
 		{/each}
 
-		<Square {data} />
+		
 	</section>
 </div>
 

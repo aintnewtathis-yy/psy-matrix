@@ -1,15 +1,18 @@
 <script>
 	import { onMount } from 'svelte';
 	import { enhance } from '$app/forms';
-	import { page } from '$app/stores';
 
 	export let data;
 	export let form;
 	let dialog;
 	let inputValue;
 
-	function inputHandle() {
-		this.classList.remove('error');
+	onMount(async () => {
+		dialog.showModal();
+	});
+
+	function inputHandle(event) {
+		event.target.classList.remove('error');
 		let arr = inputValue.split('');
 
 		for (let i = 0; i++; i < arr.length) {
@@ -26,27 +29,54 @@
 
 		inputValue = arr.join('');
 	}
-
-	onMount(() => {
-		dialog.showModal();
-		console.log($page)
-	});
-
 </script>
 
 <section>
 	<dialog bind:this={dialog}>
 		<div class="collect-data">
 			<div class="collect-data-info">
-				<h3>Получите полный разбор</h3>
-				<p>Заполните форму и в течении дня мы отправим полный разбор в удобный вам мессенджер!</p>
+				<h3>Пройдите регистрацию</h3>
+				<p>Заполните форму регистрации и получите полный разбор по введенной дате рождения</p>
+				<p class="login">Уже есть аккаунт? <a href="/login">Зайдите в аккаунт здесь</a></p>
 			</div>
-			<form action="?/fullPrediction" method="POST" class="collect-data-form" use:enhance>
+			<form action="?/register" method="POST" class="collect-data-form" use:enhance>
 				<div>
-					<label for="name">Имя</label>
-					<input type="text" name="name" placeholder="Имя" value={form?.data.name ?? ''} />
-					{#if form?.errors.name}
-						<p style="color: #EB1B1B;">{form.errors.name[0]}</p>
+					<label for="email">Email</label>
+					<input
+						type="text"
+						name="email"
+						placeholder="example@mail.ru"
+						value={form?.data.email ?? ''}
+						class:error={form?.errors.email}
+					/>
+					{#if form?.errors.email}
+						<p style="color: #EB1B1B;">{form.errors.email[0]}</p>
+					{/if}
+				</div>
+				<div>
+					<label for="password">Пароль</label>
+					<input
+						type="password"
+						name="password"
+						placeholder="Пароль"
+						value={form?.data.password ?? ''}
+						class:error={form?.errors.password}
+					/>
+					{#if form?.errors.password}
+						<p style="color: #EB1B1B;">{form.errors.password[0]}</p>
+					{/if}
+				</div>
+				<div>
+					<label for="passwordConfirm">Подтвердите пароль</label>
+					<input
+						type="password"
+						name="passwordConfirm"
+						placeholder="Пароль"
+						value={form?.data.passwordConfirm ?? ''}
+						class:error={form?.errors.passwordConfirm}
+					/>
+					{#if form?.errors.passwordConfirm}
+						<p style="color: #EB1B1B;">{form.errors.passwordConfirm[0]}</p>
 					{/if}
 				</div>
 				<div>
@@ -58,27 +88,14 @@
 						on:input={inputHandle}
 						maxlength="10"
 						placeholder="01.01.2001"
-						class:error={form?.errors.date}
+						class:error={form?.errors.date[0]}
 					/>
 					{#if form?.errors.date}
 						<p style="color: #EB1B1B;">{form.errors.date[0]}</p>
 					{/if}
 				</div>
-				<div>
-					<label for="messanger">Мессенджер/телефон/email</label>
-					<input
-						type="text"
-						name="messanger"
-						placeholder="Telegram/Whatsapp"
-						value={form?.data.messanger ?? ''}
-						class:error={form?.errors.messanger}
-					/>
-					{#if form?.errors.messanger}
-						<p style="color: #EB1B1B;">{form.errors.messanger[0]}</p>
-					{/if}
-				</div>
 
-				<button type="submit" class="btn-main">Отправить</button>
+				<button type="submit" class="btn-main">Регистрация</button>
 			</form>
 		</div>
 	</dialog>
@@ -124,6 +141,17 @@
 				p {
 					text-wrap: balance;
 					@include fluid-text(16, 14);
+				}
+
+				.login {
+					margin-top: auto;
+					a {
+						text-decoration: underline;
+
+						@include hover {
+							opacity: 0.8;
+						}
+					}
 				}
 			}
 			&-form {

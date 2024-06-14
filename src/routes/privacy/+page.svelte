@@ -1,5 +1,5 @@
 <div class="container">
-    <div style="padding-top: 100px;">
+    <div style="padding-top: 60px;">
         <div class="inputResult">
             <div class="row mb-4">
                 <div class="col">

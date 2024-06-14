@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 
 	let TPF;
+	export let login;
 
 	onMount(() => {
 		if (TPF) {
@@ -38,7 +39,7 @@
 	});
 </script>
 
-<form class="payform-tinkoff" name="payform-tinkoff" bind:this={TPF}>
+<form class="payform-tinkoff" class:login name="payform-tinkoff" bind:this={TPF}>
 	<input class="payform-tinkoff-row" type="hidden" name="terminalkey" value="1717138578425DEMO" />
 	<input class="payform-tinkoff-row" type="hidden" name="frame" value="false" />
 	<input class="payform-tinkoff-row" type="hidden" name="language" value="ru" />
@@ -67,5 +68,39 @@
 		value="example@mail.ru"
 	/>
 	<input class="payform-tinkoff-row" type="hidden" placeholder="Контактный телефон" name="phone" />
-	<input class="payform-tinkoff-row payform-tinkoff-btn btn-main" type="submit" value="Оплатить" />
+	<input
+		class="payform-tinkoff-row payform-tinkoff-btn"
+		class:btn-main={!login}
+		type="submit"
+		value={login ? 'Купить полный доступ' : 'Оплатить'}
+	/>
 </form>
+
+<style lang="scss">
+	.login {
+		input {
+			padding: 0;
+			margin: 0;
+			border: none;
+			font-family: Inter;
+			width: fit-content;
+			outline: none;
+			text-decoration: underline;
+
+			&:focus{
+				outline: none;
+			}
+
+			cursor: pointer;
+
+			
+
+			@include fluid-text(16, 16);
+
+			@include mobile {
+				@include fluid-text(16, 12);
+				line-height: 140%;
+			}
+		}
+	}
+</style>

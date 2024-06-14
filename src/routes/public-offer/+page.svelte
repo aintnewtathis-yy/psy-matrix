@@ -1,5 +1,5 @@
 <div class="container">
-	<div style="padding-top: 100px;">
+	<div style="padding-top: 60px;">
 		<div class="columns__right">
 			<div class="page-title">
 				<h1>Договор публичной оферты о продаже товаров Интернет-магазина</h1>

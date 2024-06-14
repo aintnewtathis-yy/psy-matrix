@@ -309,13 +309,13 @@
 
 <style lang="scss">
 	.hero {
-		padding-top: 100px;
+		padding-top: 60px;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 40px;
 
 		@include tablet {
-			padding-top: 60px;
+			padding-top: 30px;
 			display: flex;
 			flex-direction: column;
 		}
