@@ -40,7 +40,7 @@
 </script>
 
 <form class="payform-tinkoff" class:login name="payform-tinkoff" bind:this={TPF}>
-	<input class="payform-tinkoff-row" type="hidden" name="terminalkey" value="1717138578443" />
+	<input class="payform-tinkoff-row" type="hidden" name="terminalkey" value="1717138578425DEMO" />
 	<input class="payform-tinkoff-row" type="hidden" name="frame" value="false" />
 	<input class="payform-tinkoff-row" type="hidden" name="language" value="ru" />
 	<input class="payform-tinkoff-row" type="hidden" name="receipt" value="" />
