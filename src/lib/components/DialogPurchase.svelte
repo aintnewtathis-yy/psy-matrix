@@ -76,6 +76,11 @@
 				font-family: Manege;
 
 				@include fluid-text(55, 45);
+
+				@include mobile {
+					@include fluid-text(35, 30);
+
+				}
 			}
 			h4 {
 				font-family: Manege;
