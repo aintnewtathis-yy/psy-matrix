@@ -76,3 +76,8 @@
 		}
 	}
 </style>
+
+<svelte:head>
+	<title>Полный разбор психоматрицы</title>
+	<meta name="description" content="Полный разбор психоматрицы"/>
+</svelte:head>

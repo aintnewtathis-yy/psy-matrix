@@ -150,3 +150,8 @@
 		}
 	}
 </style>
+
+<svelte:head>
+	<title>Вход в аккаунт</title>
+	<meta name="description" content="Вход в аккаунт"/>
+</svelte:head>

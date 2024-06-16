@@ -183,3 +183,8 @@
 		}
 	}
 </style>
+
+<svelte:head>
+	<title>Регистрация</title>
+	<meta name="description" content="Регистрация"/>
+</svelte:head>

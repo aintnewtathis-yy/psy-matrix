@@ -49,7 +49,7 @@
 		type="hidden"
 		placeholder="Сумма заказа"
 		name="amount"
-		value="700"
+		value="780"
 		required
 	/>
 	<input class="payform-tinkoff-row" type="hidden" placeholder="Номер заказа" name="order" />

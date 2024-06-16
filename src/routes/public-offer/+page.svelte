@@ -270,3 +270,8 @@
 		</div>
 	</div>
 </div>
+
+<svelte:head>
+	<title>Публичная оферта</title>
+	<meta name="description" content="Публичная оферта"/>
+</svelte:head>

@@ -30,8 +30,9 @@
 					<p>ОГРН 324774600001120</p>
 				</div>
 				<div>
-					<a href="#">телеграм</a>
-					<a href="#">инстаграм</a>
+					<a href="https://t.me/mudrostichisel">телеграм</a>
+					<a href="https://www.instagram.com/ma_rina.mayskaya?igsh=MWNiZjN1Z2VzbWRmYw%3D%3D&utm_source=qr">инстаграм</a>
+					<a href="https://youtube.com/@marina_mayskaya_?si=-BpbLD4WJfRuqc5y">ютуб</a>
 				</div>
 			</div>
 			<div class="footer__bottom">

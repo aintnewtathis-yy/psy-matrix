@@ -564,3 +564,8 @@
         gap: 20px;
     }
 </style>
+
+<svelte:head>
+	<title>Политика конфиденциальности</title>
+	<meta name="description" content="Политика конфиденциальности"/>
+</svelte:head>
